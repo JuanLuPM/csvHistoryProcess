@@ -7,7 +7,7 @@ import sys
 
 
 """ extract the data of a certain suburb from the csv file and 
-calculate the median price per unit and per square
+calculate the median price per unit and per square. The result is shown from one bedroom unit to three-bedrooms unit. 
 """
 
 def suburbExtraction(enquirySub, enquiryTable):
