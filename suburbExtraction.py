@@ -6,15 +6,9 @@ import sys
 
 
 
-# roject_id,ID,Lot Name,Unit No,Price,Bedrooms,Level,Bathrooms,Parkings,Internal Area,
-# External Area,Aspect,Storage,Sale Status,Floor Plan,Comment,Created At,Project,Price_from_developer,Sale_Status_from_developer,
-# Land Size,Land Length,Land Width,Clicked
-
-# INTERNALAREACOL=9
-# BEDROOMCOL=5
-# SUBURBCOL=17
-# PRICECOL=4
-# DATECOL=16
+""" extract the data of a certain suburb from the csv file and 
+calculate the median price per unit and per square
+"""
 
 def suburbExtraction(enquirySub, enquiryTable):
 
