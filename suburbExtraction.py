@@ -124,7 +124,7 @@ if __name__=='__main__':
 		# if a==0:
 		# 	break
 
-#print filteredRow
+
 
 ##get the average and medium price of the 1 bedrooms with or without studio
 
