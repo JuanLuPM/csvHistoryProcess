@@ -85,6 +85,8 @@ def suburbExtraction(enquirySub, enquiryTable, statusCheck=None):
 
 								#calculate the area
 								currentArea=row['Internal Area']
+								if currentArea.endswith('m2'):
+									currentArea=currentArea[0:-2]
 								areaBedroom1.append(float(currentArea))
 
 							if row['Bedrooms'] in  Bed2: 
@@ -95,7 +97,10 @@ def suburbExtraction(enquirySub, enquiryTable, statusCheck=None):
 
 									priceBedroom2.append(float(priceValue))
 
+									#import pdb; pdb.set_trace()
 									currentArea=row['Internal Area']
+									if currentArea.endswith('m2'):
+										currentArea=currentArea[0:-2]
 									areaBedroom2.append(float(currentArea))
 
 
@@ -105,6 +110,8 @@ def suburbExtraction(enquirySub, enquiryTable, statusCheck=None):
 									priceValue= Decimal(sub(r'[^\d.]', '', currentPrice))
 									priceBedroom3.append(float(priceValue))
 									currentArea=row['Internal Area']
+									if currentArea.endswith('m2'):
+										currentArea=currentArea[0:-2]
 									areaBedroom3.append(float(currentArea))
 						else:
 							continue
@@ -114,18 +121,31 @@ def suburbExtraction(enquirySub, enquiryTable, statusCheck=None):
 	# priceBedroom1=np.array(priceBedroom1)
 	#print count
 	if count!=0:
-		medianBedroom1=np.median(priceBedroom1)
-		#averageBedroom1=np.average(priceBedroom1)
-		perSqm1=np.median(np.divide(priceBedroom1, areaBedroom1))
+		if  priceBedroom1:
+			medianBedroom1=np.median(priceBedroom1)
+			#averageBedroom1=np.average(priceBedroom1)
+			perSqm1=np.median(np.divide(priceBedroom1, areaBedroom1))
+		else:
+			medianBedroom1=0
+			perSqm1=0
 		
 
-		medianBedroom2=np.median(priceBedroom2)
-		#averageBedroom2=np.average(priceBedroom2)
-		perSqm2=np.median(np.divide(priceBedroom2, areaBedroom2))
+		if  priceBedroom2:
+			medianBedroom2=np.median(priceBedroom2)
+			#averageBedroom2=np.average(priceBedroom2)
+			perSqm2=np.median(np.divide(priceBedroom2, areaBedroom2))
+		else:
+			medianBedroom2=0
+			perSqm2=0
 
-		medianBedroom3=np.median(priceBedroom3)
-		#averageBedroom3=np.average(priceBedroom3)
-		perSqm3=np.median(np.divide(priceBedroom3, areaBedroom3))
+		#import pdb; pdb.set_trace()
+		if  priceBedroom3:
+			medianBedroom3=np.median(priceBedroom3)
+			#averageBedroom3=np.average(priceBedroom3)
+			perSqm3=np.median(np.divide(priceBedroom3, areaBedroom3))
+		else:
+			medianBedroom3=0
+			perSqm3=0
 
 		# print 'per unit'
 		# print medianBedroom1
