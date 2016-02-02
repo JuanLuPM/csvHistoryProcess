@@ -95,7 +95,7 @@ def intervalPrice(enquirySub, startDate, interval, statusCheck=None):
 		priceAfter=value
 		ind=ind+1
 
-	priceChangeDic[dayAfter]=[0,0,0]
+	priceChangeDic[dayAfter]=[0,0,0,0,0]
 	#import pdb; pdb.set_trace()
 	return [priceUnitDic, priceSqmDic, priceChangeDic]			
 
